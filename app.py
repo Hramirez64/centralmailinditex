@@ -66,7 +66,7 @@ def consulta_mail():
 
 @app.route('/consultamensajes')
 def consulta_mensajes():
-    usu='alexillo@gmail.com'
+    usu=session['username']
     resultado=controlador.listar_mensajes(usu)
     return jsonify(resultado)
 
@@ -86,7 +86,7 @@ def enviar_mensaje():
     mens=datos['cuerpo']
     resultado=controlador.adicionar_mensajes(rem,dest,asu,mens)
     if resultado:
-        flash('Mensaje Enviar Exitosamente...')
+        flash('Mensaje Enviado Exitosamente...')
     else:
         flash('Error Enviando Mensaje...')
 
@@ -134,6 +134,7 @@ def validar_login():
                     flash('Contraseña Incorrecta')
                     return redirect(url_for('login'))
             else:
+                flash('Usuario no registrdo')
                 return redirect(url_for('validar'))                    
 
 
