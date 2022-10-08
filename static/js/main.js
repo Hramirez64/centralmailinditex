@@ -1,7 +1,7 @@
 function verdatos(){
     var listapost;
     var identificador=document.getElementById("login_usuario").innerHTML;
-    var url="http://localhost:5000/consultarmail"
+    var url="https://centralmensajesinditec.herokuapp.com/consultarmail"
     var datos={
         "username":identificador,
         "tipo":2  }
