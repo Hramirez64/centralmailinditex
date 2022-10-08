@@ -189,9 +189,10 @@ def validar():
 
 @app.route('/mensajeria')
 def mensajeria():
-    listaruser=controlador.listar_usuario(session['username'])
-    return render_template('mensajeria.html', datauser=listaruser)  
-
+    usu=session['username']
+    listaruser=controlador.listar_usuario(usu)
+    print(listaruser)
+    return render_template('mensajeria.html', datauser=listaruser)
 
 @app.route('/recuperar')
 def recuperar():
