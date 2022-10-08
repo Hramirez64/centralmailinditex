@@ -18,7 +18,7 @@ def enviar_email(email_destino,codigo):
 
 
 def recuperar_email(email_destino):
-    remitente = "vaccar@uninorte.edu.co"
+    remitente = "uninorte2132gr7@outlook.es"
     destinatario = email_destino
     mensaje = "<h2>Correo de Restablecimiento de Contraseñas</h2>"
     mensaje=mensaje+ "<a href='http://localhost:5000/restablecer/"+email_destino+"'>Click para Restablecer la contraseña</a>"
@@ -30,7 +30,7 @@ def recuperar_email(email_destino):
     email.set_content(mensaje, subtype="html")
     smtp = smtplib.SMTP("smtp-mail.outlook.com", port=587)
     smtp.starttls()
-    smtp.login(remitente, "")
+    smtp.login(remitente, "Inditex_g7")
     smtp.sendmail(remitente, destinatario, email.as_string())
     smtp.quit()
     
