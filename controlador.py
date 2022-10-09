@@ -30,7 +30,7 @@ def adicionar_registros(nombre,apellido,usuario,p1):
     except:
         return False
 
-def validacion_login(usu):
+def validar_login(usu):
     
     try:
         db=conexion()
