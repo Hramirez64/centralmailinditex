@@ -100,7 +100,7 @@ def activar_cuenta():
     usu=datos['usuario']
     codver=datos['codverificacion']
     resultado=controlador.activar_cuenta(usu,codver)
-    if resultado:
+    if resultado=='SI':
         flash('Cuenta Activada Satisfactoriamente')
     else:
         flash('Error en Activacion')
@@ -110,11 +110,12 @@ def activar_cuenta():
 
 @app.route('/validarlogin', methods=['POST'])
 def validar_login():
+    session.clear()
     datos=request.form
     usu=datos['usuario']
     passw=datos['passw']
     if usu=='' or passw=='':
-        flash('Datos Incompletos')
+        flash("Datos Incompletos")
         return redirect(url_for('login'))
     else:
         resultado=controlador.validacion_login(usu)
@@ -151,15 +152,15 @@ def add_registro():
    
     p1enc=generate_password_hash(p1)
 
-    if nom==''and ape=='' and usu=='' and p1=='' and p2=='':
+    if nom==''or ape=='' or usu=='' or p1=='' or p2=='':
         #return '<h2>Datos Incompletos</h2>'
        flash('Datos Incompletos')
     elif p1!=p2:
         #return '<h2>Las Contraseñas no coinciden</h2>'
-       flash('Las Constraseñas no Coinciden')
+       flash('Las Contraseñas no Coinciden')
     elif len(p1)<8:
        #return '<h2>Verificar las constraseñas</h2>'     
-       flash('Verificar Tamaño de la Contaseña')
+       flash('Verificar Tamaño de la Contraseña')
     else:
        resultado=controlador.adicionar_registros(nom,ape,usu,p1enc)
        if resultado:
@@ -177,7 +178,7 @@ def index():
 
 @app.route('/login')
 def login():
-    session.clear()
+    ###session.clear()
     return render_template('login.html')
 
 @app.route('/registro')
@@ -218,7 +219,7 @@ def protegerrutas():
     ruta=request.path
     if not 'username' in session and (ruta=="/menu" or ruta=="/mensajeria"):
         flash('Por Favor debe Loguearse en el sistema')
-        return redirect('/login')
+        return redirect('/login') 
 
 if  __name__=='__main__':
      app.run(debug=True)  

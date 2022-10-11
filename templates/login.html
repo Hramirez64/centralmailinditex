@@ -12,7 +12,8 @@
               <!-- Nested Row within Card Body -->
               <div class="row">
                 <div class="col-lg-6 d-none d-lg-block ">
-                  <img src="/static/img/Mensajeria Inditex.jpg" class="img-fluid" alt="Responsive image" ></div>
+                  <img src="/static/img/Mensajeria Inditex.jpg" width="500" class="img-fluid" alt="Responsive image" >
+                </div>
                 <div class="col-lg-6">
                   <div class="p-5">
                     <div class="text-center">
@@ -31,7 +32,7 @@
                       <button class="btn btn-success" id="alertas" type="submit">Enviar</button>
                     
                     
-                      <a href="index.html" class="btn btn-primary btn-user btn-block">
+                      <!-- <a href="index.html" class="btn btn-primary btn-user btn-block">
                         Login
                       </a> -->
                       <!-- <hr>
@@ -40,7 +41,7 @@
                       </a>
                       <a href="index.html" class="btn btn-facebook btn-user btn-block">
                         <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                      </a>
+                      </a>-->
                     </form>
                   
                    <!--
@@ -58,15 +59,13 @@
                    
                     <hr>
 
-
-
                     {% with messages = get_flashed_messages() %}
                     {% if messages %}
                     {% for message in messages %}
             
                     <div class="alert alert-dismissible alert-warning">
                       <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                      <h4 class="alert-heading">Ingreso al Sistema de mesajeria de Inditex</h4>
+                      <h4 class="alert-heading">Alerta!!!</h4>
                       <p class="mb-0">
                         {{ message }}
                       </p>
@@ -75,7 +74,9 @@
               
                     {% endfor %}
                     {% endif %}
-                    {% endwith %}     
+                    {% endwith %}    
+
+                    <hr>
 
 
                   </div>
@@ -86,8 +87,8 @@
   
         </div>
   
-      </div>
-  
     </div>
+  
+    
   
 {% endblock %}
